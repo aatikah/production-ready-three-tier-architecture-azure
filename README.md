@@ -72,7 +72,7 @@ The response should come from the web tier. Test the app tier from a web VM or t
 ## Cleanup
 
 ```powershell
-terraform destroy
+terraform destroy --auto-approve
 ```
 
 Destroying the resource group removes the deployed Azure resources and can incur charges until cleanup completes.
