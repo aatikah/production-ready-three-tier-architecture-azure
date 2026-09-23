@@ -180,11 +180,21 @@ resource "azurerm_nat_gateway_public_ip_association" "main" {
 resource "azurerm_subnet_nat_gateway_association" "web" {
   subnet_id      = azurerm_subnet.web.id
   nat_gateway_id = azurerm_nat_gateway.main[0].id
+
+  depends_on = [
+    azurerm_subnet_network_security_group_association.web,
+    azurerm_nat_gateway_public_ip_association.main
+  ]
 }
 
 resource "azurerm_subnet_nat_gateway_association" "app" {
   subnet_id      = azurerm_subnet.app.id
   nat_gateway_id = azurerm_nat_gateway.main[0].id
+
+  depends_on = [
+    azurerm_subnet_network_security_group_association.app,
+    azurerm_nat_gateway_public_ip_association.main
+  ]
 }
 
 resource "azurerm_public_ip" "load_balancer" {

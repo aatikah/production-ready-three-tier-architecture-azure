@@ -7,7 +7,7 @@ variable "subscription_id" {
 variable "location" {
   description = "Azure region for the deployment."
   type        = string
-  default     = "East US"
+  default     = "West US 2"
 }
 
 variable "environment" {
@@ -61,7 +61,7 @@ variable "ssh_public_key" {
 variable "vm_size" {
   description = "Azure VM size for web and app tiers."
   type        = string
-  default     = "Standard_B2s"
+  default     = "Standard_D2als_v7"
 }
 
 variable "postgres_version" {
